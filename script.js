@@ -161,23 +161,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Typing effect for hero title (disabled to preserve HTML formatting)
-// The typing effect has been disabled to maintain proper HTML formatting with the highlight span
-
-// Initialize fade-in effect when page loads
-window.addEventListener('load', () => {
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        heroTitle.style.opacity = '0';
-        heroTitle.style.transform = 'translateY(20px)';
-        heroTitle.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-        
-        setTimeout(() => {
-            heroTitle.style.opacity = '1';
-            heroTitle.style.transform = 'translateY(0)';
-        }, 200);
-    }
-});
+// Hero title animation - removed to prevent HTML rendering issues
+// The hero title will display normally without animation to preserve proper HTML formatting
 
 // Parallax effect for hero section
 window.addEventListener('scroll', () => {
@@ -212,12 +197,20 @@ document.querySelectorAll('.project-card').forEach(card => {
     });
 });
 
-// Add loading animation
+// Add smooth page loading transition
 window.addEventListener('load', () => {
+    // Ensure hero title displays properly without animation interference
+    const heroTitle = document.querySelector('.hero-title');
+    if (heroTitle) {
+        heroTitle.style.opacity = '1';
+        heroTitle.style.transform = 'none';
+    }
+    
+    // Page fade-in effect
     document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.5s ease';
+    document.body.style.transition = 'opacity 0.3s ease';
     
     setTimeout(() => {
         document.body.style.opacity = '1';
-    }, 100);
+    }, 50);
 });
