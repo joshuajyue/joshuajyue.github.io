@@ -161,28 +161,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Typing effect for hero title
-function typeWriter(element, text, speed = 100) {
-    let i = 0;
-    element.innerHTML = '';
-    
-    function type() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    }
-    
-    type();
-}
+// Typing effect for hero title (disabled to preserve HTML formatting)
+// The typing effect has been disabled to maintain proper HTML formatting with the highlight span
 
-// Initialize typing effect when page loads
+// Initialize fade-in effect when page loads
 window.addEventListener('load', () => {
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle) {
-        const originalText = heroTitle.innerHTML;
-        typeWriter(heroTitle, originalText, 50);
+        heroTitle.style.opacity = '0';
+        heroTitle.style.transform = 'translateY(20px)';
+        heroTitle.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        
+        setTimeout(() => {
+            heroTitle.style.opacity = '1';
+            heroTitle.style.transform = 'translateY(0)';
+        }, 200);
     }
 });
 
