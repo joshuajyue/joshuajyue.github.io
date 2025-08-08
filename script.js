@@ -5,23 +5,25 @@ const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
 // Check for saved theme preference or default to system preference
 const currentTheme = localStorage.getItem('theme');
 if (currentTheme) {
-    document.body.classList.toggle('dark-theme', currentTheme === 'dark');
+    document.documentElement.setAttribute('data-theme', currentTheme);
 } else if (prefersDarkScheme.matches) {
-    document.body.classList.add('dark-theme');
+    document.documentElement.setAttribute('data-theme', 'dark');
+} else {
+    document.documentElement.setAttribute('data-theme', 'light');
 }
 
 // Theme toggle functionality
 if (themeToggle) {
     themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-theme');
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         
-        // Save theme preference
-        const isDark = document.body.classList.contains('dark-theme');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
         
         // Update icon
         const icon = themeToggle.querySelector('i');
-        if (isDark) {
+        if (newTheme === 'dark') {
             icon.classList.remove('fa-moon');
             icon.classList.add('fa-sun');
         } else {
@@ -32,8 +34,8 @@ if (themeToggle) {
     
     // Set initial icon
     const icon = themeToggle.querySelector('i');
-    const isDark = document.body.classList.contains('dark-theme');
-    if (isDark) {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    if (currentTheme === 'dark') {
         icon.classList.remove('fa-moon');
         icon.classList.add('fa-sun');
     }
@@ -71,12 +73,20 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Navbar background on scroll
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
-    const isDark = document.body.classList.contains('dark-theme');
+    const currentTheme = document.documentElement.getAttribute('data-theme');
     
     if (window.scrollY > 50) {
-        navbar.style.backgroundColor = isDark ? 'rgba(17, 24, 39, 0.98)' : 'rgba(255, 255, 255, 0.98)';
+        if (currentTheme === 'dark') {
+            navbar.style.backgroundColor = 'rgba(31, 41, 55, 0.98)';
+        } else {
+            navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+        }
     } else {
-        navbar.style.backgroundColor = isDark ? 'rgba(17, 24, 39, 0.95)' : 'rgba(255, 255, 255, 0.95)';
+        if (currentTheme === 'dark') {
+            navbar.style.backgroundColor = 'rgba(31, 41, 55, 0.95)';
+        } else {
+            navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+        }
     }
 });
 
@@ -197,20 +207,13 @@ document.querySelectorAll('.project-card').forEach(card => {
     });
 });
 
-// Add smooth page loading transition
-window.addEventListener('load', () => {
-    // Ensure hero title displays properly without animation interference
+// Page initialization - ensure proper display
+document.addEventListener('DOMContentLoaded', () => {
+    // Ensure hero title displays properly with correct HTML formatting
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle) {
         heroTitle.style.opacity = '1';
         heroTitle.style.transform = 'none';
+        heroTitle.style.visibility = 'visible';
     }
-    
-    // Page fade-in effect
-    document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.3s ease';
-    
-    setTimeout(() => {
-        document.body.style.opacity = '1';
-    }, 50);
 });
