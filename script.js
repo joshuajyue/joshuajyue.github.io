@@ -171,8 +171,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Hero title animation - removed to prevent HTML rendering issues
-// The hero title will display normally without animation to preserve proper HTML formatting
+// Hero title typing animation
+function initTypeWriter() {
+    const heroTitle = document.querySelector('.hero-title');
+    if (!heroTitle) return;
+    
+    const text = "Hi, I'm Joshua Yue!";
+    heroTitle.textContent = ''; // Clear existing content
+    heroTitle.style.opacity = '1';
+    heroTitle.style.visibility = 'visible';
+    
+    let i = 0;
+    function typeWriter() {
+        if (i < text.length) {
+            heroTitle.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 80); // Typing speed
+        }
+    }
+    
+    // Start typing after a brief delay
+    setTimeout(typeWriter, 500);
+}
 
 // Parallax effect for hero section
 window.addEventListener('scroll', () => {
@@ -209,11 +229,6 @@ document.querySelectorAll('.project-card').forEach(card => {
 
 // Page initialization - ensure proper display
 document.addEventListener('DOMContentLoaded', () => {
-    // Ensure hero title displays properly with correct HTML formatting
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        heroTitle.style.opacity = '1';
-        heroTitle.style.transform = 'none';
-        heroTitle.style.visibility = 'visible';
-    }
+    // Initialize typing animation for hero title
+    initTypeWriter();
 });
