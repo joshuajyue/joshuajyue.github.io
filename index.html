@@ -32,10 +32,15 @@
                     <a href="#contact" class="nav-link">Contact</a>
                 </li>
             </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <div class="nav-right">
+                <div class="theme-toggle" title="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </div>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </div>
         </div>
     </nav>
@@ -47,10 +52,11 @@
                 <h1 class="hero-title">
                     Hi, I'm <span class="highlight">Joshua Yue</span>
                 </h1>
-                <p class="hero-subtitle">Full Stack Developer & Computer Science Student</p>
+                <p class="hero-subtitle">Computer Science & Mathematics Student at UT Austin</p>
                 <p class="hero-description">
-                    I create modern web applications and solve complex problems through code.
-                    Currently exploring machine learning, web development, and system design.
+                    Software Engineering Intern at USAA with experience in cloud infrastructure, data pipelines, 
+                    and full-stack development. Passionate about machine learning, system design, and building 
+                    scalable solutions that make a difference.
                 </p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn btn-primary">View My Work</a>
@@ -72,14 +78,14 @@
             <div class="about-content">
                 <div class="about-text">
                     <p>
-                        I'm a passionate Computer Science student with experience in full-stack development,
-                        system design, and problem-solving. I enjoy working with modern technologies and
-                        building applications that make a difference.
+                        I'm a Computer Science and Mathematics student at the University of Texas at Austin with a 3.98 GPA, 
+                        currently working as a Software Engineering Intern at USAA. I specialize in cloud infrastructure, 
+                        data engineering, and full-stack development with experience in enterprise-scale systems.
                     </p>
                     <p>
-                        My journey in programming has led me to explore various domains including web development,
-                        algorithms, database design, and machine learning. I'm always eager to learn new
-                        technologies and take on challenging projects.
+                        My experience spans from architecting data pipelines processing 20TB+ daily traffic to developing 
+                        machine learning models that achieve industry-leading accuracy. I'm passionate about leveraging 
+                        technology to solve complex problems and create meaningful impact through innovative solutions.
                     </p>
                     <div class="about-stats">
                         <div class="stat">
@@ -105,6 +111,52 @@
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
             <div class="projects-grid">
+                <!-- HarmonAIzer Project -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>HarmonAIzer</h3>
+                        <p>Full-stack MIDI harmonizer with interactive React piano interface and FastAPI backend featuring dual harmonization engines. Neural network trained on Bach chorales dataset for intelligent chord progressions.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">PyTorch</span>
+                            <span class="tech-tag">Music21</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/joshuajyue" class="project-link">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cloud Simulator Project -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Cloud Simulator</h3>
+                        <p>Comprehensive cloud simulation engine modeling task scheduling across heterogeneous virtual machines. Custom leveled scheduler reduces energy consumption by 20% while maintaining 95%+ SLA compliance.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">C++</span>
+                            <span class="tech-tag">Algorithm Design</span>
+                            <span class="tech-tag">System Optimization</span>
+                            <span class="tech-tag">Performance Analysis</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/joshuajyue" class="project-link">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Journal Buddy Project -->
                 <div class="project-card">
                     <div class="project-image">
@@ -112,85 +164,39 @@
                     </div>
                     <div class="project-content">
                         <h3>My Journal Buddy</h3>
-                        <p>A full-stack journaling application with user authentication, entry management, and mood tracking. Built with Flask, SQLAlchemy, and JWT authentication.</p>
+                        <p>Secure user authentication and private journal management system utilizing JWT tokens and RESTful API design. PostgreSQL database with end-to-end encrypted data storage for enhanced privacy.</p>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">Flask</span>
-                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Docker</span>
                             <span class="tech-tag">JWT</span>
-                            <span class="tech-tag">SQLAlchemy</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="project-link">
-                                <i class="fab fa-github"></i> Code
-                            </a>
-                            <a href="#" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Systems Project -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Pintos Operating System</h3>
-                        <p>Enhanced the Pintos educational operating system by implementing system calls, user programs, and file system functionality.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">C</span>
-                            <span class="tech-tag">Systems Programming</span>
-                            <span class="tech-tag">OS Design</span>
-                            <span class="tech-tag">Memory Management</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">
+                            <a href="https://github.com/joshuajyue" class="project-link">
                                 <i class="fab fa-github"></i> Code
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Research Project -->
+                <!-- UT Energy AI Hackathon -->
                 <div class="project-card">
                     <div class="project-image">
-                        <i class="fas fa-microchip"></i>
+                        <i class="fas fa-trophy"></i>
                     </div>
                     <div class="project-content">
-                        <h3>Reversible Computing Research</h3>
-                        <p>Academic research paper on reversible computing architectures and energy-efficient computation methods. Comprehensive survey of current technologies.</p>
+                        <h3>Energy Demand Forecasting (2nd Place)</h3>
+                        <p>High-precision machine learning model for energy demand forecasting achieving 0.480 MAPE. Advanced CatBoost model with sophisticated feature engineering beating team average by 4x.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">Research</span>
-                            <span class="tech-tag">LaTeX</span>
-                            <span class="tech-tag">Computer Architecture</span>
-                            <span class="tech-tag">Energy Efficiency</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Scikit-Learn</span>
+                            <span class="tech-tag">CatBoost</span>
+                            <span class="tech-tag">Data Science</span>
+                            <span class="tech-tag">Machine Learning</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="project-link">
-                                <i class="fas fa-file-pdf"></i> Paper
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Algorithm Project -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-calculator"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Linear Systems Solver</h3>
-                        <p>Implementation of iterative methods for solving linear systems of equations with optimized performance and numerical stability.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Algorithms</span>
-                            <span class="tech-tag">Numerical Methods</span>
-                            <span class="tech-tag">Mathematics</span>
-                            <span class="tech-tag">Optimization</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">
+                            <a href="https://github.com/joshuajyue" class="project-link">
                                 <i class="fab fa-github"></i> Code
                             </a>
                         </div>
@@ -208,41 +214,51 @@
                 <div class="skill-category">
                     <h3>Programming Languages</h3>
                     <div class="skill-items">
-                        <span class="skill-item">Python</span>
                         <span class="skill-item">Java</span>
                         <span class="skill-item">C/C++</span>
+                        <span class="skill-item">Python</span>
                         <span class="skill-item">JavaScript</span>
-                        <span class="skill-item">HTML/CSS</span>
+                        <span class="skill-item">TypeScript</span>
+                        <span class="skill-item">Go</span>
+                        <span class="skill-item">R</span>
+                        <span class="skill-item">SQL</span>
                     </div>
                 </div>
                 <div class="skill-category">
                     <h3>Frameworks & Libraries</h3>
                     <div class="skill-items">
-                        <span class="skill-item">Flask</span>
-                        <span class="skill-item">SQLAlchemy</span>
-                        <span class="skill-item">JWT</span>
                         <span class="skill-item">React</span>
+                        <span class="skill-item">FastAPI</span>
+                        <span class="skill-item">Flask</span>
+                        <span class="skill-item">Django</span>
                         <span class="skill-item">Node.js</span>
+                        <span class="skill-item">PyTorch</span>
+                        <span class="skill-item">Scikit-Learn</span>
+                        <span class="skill-item">Pandas</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Databases & Tools</h3>
+                    <h3>Cloud & DevOps</h3>
                     <div class="skill-items">
-                        <span class="skill-item">MySQL</span>
-                        <span class="skill-item">Git</span>
+                        <span class="skill-item">AWS</span>
+                        <span class="skill-item">AWS Glue</span>
                         <span class="skill-item">Docker</span>
-                        <span class="skill-item">VS Code</span>
-                        <span class="skill-item">LaTeX</span>
+                        <span class="skill-item">Terraform</span>
+                        <span class="skill-item">GitLab CI/CD</span>
+                        <span class="skill-item">Apache Spark</span>
+                        <span class="skill-item">Apache Iceberg</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Concepts & Methodologies</h3>
+                    <h3>Data & Databases</h3>
                     <div class="skill-items">
-                        <span class="skill-item">REST APIs</span>
-                        <span class="skill-item">System Design</span>
-                        <span class="skill-item">Algorithms</span>
-                        <span class="skill-item">Database Design</span>
-                        <span class="skill-item">Security</span>
+                        <span class="skill-item">PostgreSQL</span>
+                        <span class="skill-item">Snowflake</span>
+                        <span class="skill-item">DBT</span>
+                        <span class="skill-item">Data Pipelines</span>
+                        <span class="skill-item">Machine Learning</span>
+                        <span class="skill-item">CatBoost</span>
+                        <span class="skill-item">Music21</span>
                     </div>
                 </div>
             </div>
@@ -259,15 +275,15 @@
                     <div class="contact-methods">
                         <div class="contact-method">
                             <i class="fas fa-envelope"></i>
-                            <span>your.email@example.com</span>
+                            <span>joshuajyue@utexas.edu</span>
                         </div>
                         <div class="contact-method">
                             <i class="fab fa-linkedin"></i>
-                            <span>linkedin.com/in/yourprofile</span>
+                            <span>linkedin.com/in/joshuajyue</span>
                         </div>
                         <div class="contact-method">
                             <i class="fab fa-github"></i>
-                            <span>github.com/yourusername</span>
+                            <span>github.com/joshuajyue</span>
                         </div>
                     </div>
                 </div>
@@ -292,9 +308,9 @@
         <div class="container">
             <p>&copy; 2025 Joshua Yue. All rights reserved.</p>
             <div class="social-links">
-                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/joshuajyue" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/joshuajyue/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:joshuajyue@utexas.edu" aria-label="Email"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
     </footer>

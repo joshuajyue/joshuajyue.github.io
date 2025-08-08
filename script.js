@@ -1,3 +1,44 @@
+// Dark Mode Toggle
+const themeToggle = document.querySelector('.theme-toggle');
+const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+// Check for saved theme preference or default to system preference
+const currentTheme = localStorage.getItem('theme');
+if (currentTheme) {
+    document.body.classList.toggle('dark-theme', currentTheme === 'dark');
+} else if (prefersDarkScheme.matches) {
+    document.body.classList.add('dark-theme');
+}
+
+// Theme toggle functionality
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-theme');
+        
+        // Save theme preference
+        const isDark = document.body.classList.contains('dark-theme');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        
+        // Update icon
+        const icon = themeToggle.querySelector('i');
+        if (isDark) {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        } else {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        }
+    });
+    
+    // Set initial icon
+    const icon = themeToggle.querySelector('i');
+    const isDark = document.body.classList.contains('dark-theme');
+    if (isDark) {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    }
+}
+
 // Mobile Navigation Toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
@@ -30,10 +71,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Navbar background on scroll
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
+    const isDark = document.body.classList.contains('dark-theme');
+    
     if (window.scrollY > 50) {
-        navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+        navbar.style.backgroundColor = isDark ? 'rgba(17, 24, 39, 0.98)' : 'rgba(255, 255, 255, 0.98)';
     } else {
-        navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.backgroundColor = isDark ? 'rgba(17, 24, 39, 0.95)' : 'rgba(255, 255, 255, 0.95)';
     }
 });
 
