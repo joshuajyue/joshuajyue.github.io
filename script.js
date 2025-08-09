@@ -30,6 +30,22 @@ if (themeToggle) {
             icon.classList.remove('fa-sun');
             icon.classList.add('fa-moon');
         }
+        
+        // Update color scheme for current section
+        const sections = document.querySelectorAll('section[id]');
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= (sectionTop - 200)) {
+                current = section.getAttribute('id');
+            }
+        });
+        if (current) {
+            updateColorScheme(current);
+        } else {
+            updateColorScheme('hero'); // Default to hero colors
+        }
     });
     
     // Set initial icon
@@ -90,7 +106,45 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Active navigation link highlighting
+// Dynamic Color Scheme Configuration
+const colorSchemes = {
+    hero: {
+        light: { primary: '#2563eb', secondary: '#3b82f6', accent: '#1d4ed8' },
+        dark: { primary: '#3b82f6', secondary: '#60a5fa', accent: '#2563eb' }
+    },
+    about: {
+        light: { primary: '#059669', secondary: '#10b981', accent: '#047857' },
+        dark: { primary: '#10b981', secondary: '#34d399', accent: '#059669' }
+    },
+    skills: {
+        light: { primary: '#7c3aed', secondary: '#8b5cf6', accent: '#6d28d9' },
+        dark: { primary: '#8b5cf6', secondary: '#a78bfa', accent: '#7c3aed' }
+    },
+    projects: {
+        light: { primary: '#dc2626', secondary: '#ef4444', accent: '#b91c1c' },
+        dark: { primary: '#ef4444', secondary: '#f87171', accent: '#dc2626' }
+    },
+    contact: {
+        light: { primary: '#ea580c', secondary: '#f97316', accent: '#c2410c' },
+        dark: { primary: '#f97316', secondary: '#fb923c', accent: '#ea580c' }
+    }
+};
+
+// Function to update color scheme
+function updateColorScheme(sectionId) {
+    const root = document.documentElement;
+    const theme = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    const colors = colorSchemes[sectionId] || colorSchemes.hero;
+    const scheme = colors[theme];
+    
+    if (scheme) {
+        root.style.setProperty('--primary-color', scheme.primary);
+        root.style.setProperty('--secondary-color-accent', scheme.secondary);
+        root.style.setProperty('--accent-color', scheme.accent);
+    }
+}
+
+// Active navigation link highlighting with dynamic colors
 window.addEventListener('scroll', () => {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -103,6 +157,11 @@ window.addEventListener('scroll', () => {
             current = section.getAttribute('id');
         }
     });
+
+    // Update color scheme based on current section
+    if (current) {
+        updateColorScheme(current);
+    }
 
     navLinks.forEach(link => {
         link.classList.remove('active');
@@ -231,4 +290,7 @@ document.querySelectorAll('.project-card').forEach(card => {
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize typing animation for hero title
     initTypeWriter();
+    
+    // Initialize color scheme
+    updateColorScheme('hero');
 });
