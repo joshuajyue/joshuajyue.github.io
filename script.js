@@ -181,38 +181,6 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Contact form handling
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(this);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const message = formData.get('message');
-        
-        // Simple validation
-        if (!name || !email || !message) {
-            alert('Please fill in all fields');
-            return;
-        }
-        
-        // Email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            alert('Please enter a valid email address');
-            return;
-        }
-        
-        // Here you would typically send the form data to a server
-        // For now, we'll just show a success message
-        alert('Thank you for your message! I\'ll get back to you soon.');
-        this.reset();
-    });
-}
-
 // Timeline animations
 function initTimelineAnimations() {
     const timelineItems = document.querySelectorAll('.timeline-item');
@@ -379,6 +347,63 @@ function initProgressiveMathFunctions() {
     // Initialize and bind events
     updateSineWaves();
     window.addEventListener('scroll', handleScroll, { passive: true });
+}
+
+// Contact form handling with AJAX submission
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(this);
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const message = formData.get('message');
+        
+        // Simple validation
+        if (!name || !email || !message) {
+            alert('Please fill in all fields');
+            return;
+        }
+        
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert('Please enter a valid email address');
+            return;
+        }
+        
+        // Disable submit button and show loading state
+        const submitButton = this.querySelector('button[type="submit"]');
+        const originalText = submitButton.textContent;
+        submitButton.textContent = 'Sending...';
+        submitButton.disabled = true;
+        
+        try {
+            // Send to Formspree via AJAX
+            const response = await fetch('https://formspree.io/f/mblkqyew', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                alert('Thank you for your message! I\'ll get back to you soon.');
+                this.reset();
+            } else {
+                alert('Oops! There was a problem sending your message. Please try again or email me directly.');
+            }
+        } catch (error) {
+            alert('Oops! There was a problem sending your message. Please try again or email me directly.');
+        } finally {
+            // Re-enable submit button
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
+        }
+    });
 }
 
 // Page initialization - ensure proper display

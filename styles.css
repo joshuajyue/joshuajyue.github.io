@@ -874,11 +874,11 @@ section {
 }
 
 .timeline-item:nth-child(odd)::before {
-    right: -10px;
+    right: -14px;
 }
 
 .timeline-item:nth-child(even)::before {
-    left: -10px;
+    left: -14px;
 }
 
 .timeline-item:hover::before {
@@ -945,7 +945,7 @@ section {
     }
     
     .timeline-item::before {
-        left: 10px !important;
+        left: 14px !important;
         right: auto !important;
     }
     
