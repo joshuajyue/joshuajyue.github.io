@@ -294,15 +294,15 @@ body::before {
     z-index: -1;
     background: linear-gradient(
         45deg,
-        #667eea 0%,
-        #764ba2 25%,
-        #f093fb 50%,
-        #f5576c 75%,
-        #4facfe 100%
+        #4facfe 0%,
+        #667eea 25%,
+        #764ba2 50%,
+        #6b7cd9 75%,
+        #534dbf 100%
     );
     background-size: 400% 400%;
     animation: gradientShift 15s ease infinite;
-    opacity: 0.1;
+    opacity: 0.08;
     transition: opacity 0.3s ease;
 }
 
