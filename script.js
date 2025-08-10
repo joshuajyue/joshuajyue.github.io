@@ -287,15 +287,7 @@ function initTypeWriter() {
 }
 
 // Parallax effect for hero section
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const heroImage = document.querySelector('.hero-image');
-    
-    if (heroImage) {
-        const rate = scrolled * -0.5;
-        heroImage.style.transform = `translateY(${rate}px)`;
-    }
-});
+// Removed parallax effect on hero image to prevent movement during scroll
 
 // Skills hover effect
 document.querySelectorAll('.skill-item').forEach(skill => {
