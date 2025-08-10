@@ -311,6 +311,76 @@ document.querySelectorAll('.project-card').forEach(card => {
     });
 });
 
+// Progressive Sine Wave Generator
+function initProgressiveMathFunctions() {
+    const svg = document.getElementById('sine-wave-svg');
+    const path1 = document.getElementById('sine-path');
+    const path2 = document.getElementById('sine-path-2');
+    
+    if (!svg || !path1 || !path2) return;
+    
+    // Set SVG dimensions
+    const updateSVGSize = () => {
+        svg.setAttribute('width', window.innerWidth);
+        svg.setAttribute('height', window.innerHeight);
+        svg.setAttribute('viewBox', `0 0 ${window.innerWidth} ${window.innerHeight}`);
+    };
+    
+    updateSVGSize();
+    window.addEventListener('resize', updateSVGSize);
+    
+    // Sine wave parameters
+    const amplitude = 80;
+    const frequency1 = 0.008; // Slower frequency for first wave
+    const frequency2 = 0.009; // Slightly different frequency for second wave to create subtle desync
+    const centerY = window.innerHeight / 2;
+    const centerY2 = window.innerHeight / 2 + 150;
+    
+    function generateSineWave(maxX, centerY, frequency, phaseOffset = 0) {
+        const points = [];
+        points.push(`M 0 ${centerY}`);
+        
+        for (let x = 5; x <= maxX; x += 5) {
+            const y = centerY + amplitude * Math.sin((x * frequency) + phaseOffset);
+            points.push(`L ${x} ${y}`);
+        }
+        
+        return points.join(' ');
+    }
+    
+    function updateSineWaves() {
+        // Calculate scroll percentage (0 to 1)
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = Math.min(scrollTop / docHeight, 1);
+        const maxX = window.innerWidth * scrollPercent;
+        
+        // Generate sine waves that draw progressively as user scrolls
+        const path1Data = generateSineWave(maxX, centerY, frequency1, 0);
+        const path2Data = generateSineWave(maxX, centerY2, frequency2, Math.PI / 3);
+        
+        // Update the paths
+        path1.setAttribute('d', path1Data);
+        path2.setAttribute('d', path2Data);
+    }
+    
+    // Throttled scroll handler for performance
+    let ticking = false;
+    function handleScroll() {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                updateSineWaves();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }
+    
+    // Initialize and bind events
+    updateSineWaves();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+}
+
 // Page initialization - ensure proper display
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize typing animation for hero title
@@ -321,4 +391,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize timeline animations
     initTimelineAnimations();
+    
+    // Initialize sine wave animation
+    initProgressiveMathFunctions();
 });

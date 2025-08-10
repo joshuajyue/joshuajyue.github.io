@@ -9,6 +9,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Progressive Sine Wave Background -->
+    <svg id="sine-wave-svg" class="sine-wave-background">
+        <defs>
+            <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:var(--primary-color);stop-opacity:0.3" />
+                <stop offset="50%" style="stop-color:var(--secondary-color-accent);stop-opacity:0.5" />
+                <stop offset="100%" style="stop-color:var(--accent-color);stop-opacity:0.3" />
+            </linearGradient>
+        </defs>
+        <path id="sine-path" d="" stroke="url(#waveGradient)" stroke-width="3" fill="none" opacity="0.7" />
+        <path id="sine-path-2" d="" stroke="url(#waveGradient)" stroke-width="2" fill="none" opacity="0.6" />
+    </svg>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -70,7 +83,7 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="https://github.com/joshuajyue.png" alt="Joshua Yue" class="profile-image">
+                <img src="image.png" alt="Joshua Yue" class="profile-image">
             </div>
         </div>
     </section>

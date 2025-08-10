@@ -57,9 +57,9 @@ body.section-projects {
 }
 
 body.section-contact {
-    --primary-color: #5e4dbf; /* Contact */
-    --secondary-color-accent: #7b66d9;
-    --accent-color: #4b3aa6;
+    --primary-color: #4d69bf; /* Contact */
+    --secondary-color-accent: #6b7cd9;
+    --accent-color: #3a56a6;
     --nav-bg: rgba(255, 255, 255, 0.95);
 }
 
@@ -93,12 +93,11 @@ body.section-contact {
 }
 
 [data-theme="dark"].section-contact {
-    --primary-color: #5e4dbf; /* Contact */
-    --secondary-color-accent: #7b66d9;
-    --accent-color: #4b3aa6;
+    --primary-color: #4d69bf; /* contact */
+    --secondary-color-accent: #6b7cd9;
+    --accent-color: #3a56a6;
     --nav-bg: rgba(31, 41, 55, 0.95);
 }
-
 [data-theme="dark"], 
 .dark-theme {
     /* Dark mode colors */
@@ -204,6 +203,11 @@ a:visited {
     transition: var(--color-transition);
 }
 
+/* Override navbar logo color for dark mode */
+[data-theme="dark"] .nav-logo a {
+    color: white;
+}
+
 .nav-menu {
     display: flex;
     list-style: none;
@@ -277,6 +281,99 @@ a:visited {
 
 [data-theme="dark"] .navbar {
     background-color: rgba(31, 41, 55, 0.95) !important;
+}
+
+/* Scrolling Gradient Background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(
+        45deg,
+        #667eea 0%,
+        #764ba2 25%,
+        #f093fb 50%,
+        #f5576c 75%,
+        #4facfe 100%
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    opacity: 0.1;
+    transition: opacity 0.3s ease;
+}
+
+[data-theme="dark"] body::before {
+    opacity: 0.15;
+    background: linear-gradient(
+        45deg,
+        #2d3748 0%,
+        #4a5568 25%,
+        #553c9a 50%,
+        #667eea 75%,
+        #764ba2 100%
+    );
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Progressive Sine Wave Background */
+.sine-wave-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+[data-theme="dark"] .sine-wave-background {
+    opacity: 0.6;
+}
+
+#sine-path {
+    filter: drop-shadow(0 0 8px rgba(77, 105, 191, 0.3));
+}
+
+#sine-path-2 {
+    filter: drop-shadow(0 0 6px rgba(107, 124, 217, 0.2));
+}
+
+[data-theme="dark"] #sine-path {
+    filter: drop-shadow(0 0 12px rgba(77, 105, 191, 0.5));
+}
+
+[data-theme="dark"] #sine-path-2 {
+    filter: drop-shadow(0 0 8px rgba(107, 124, 217, 0.4));
+}
+
+/* Ensure sections have transparent backgrounds to show gradient */
+.hero,
+.about,
+.projects,
+.skills,
+.contact {
+    background: transparent !important;
+}
+
+/* Add subtle overlay for readability */
+section {
+    position: relative;
 }
 
 /* Hero Section */
@@ -448,8 +545,8 @@ section {
 .stat h3 {
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--primary-color);
     margin-bottom: 0.5rem;
+    color: var(--secondary-color-accent);
 }
 
 .stat p {
