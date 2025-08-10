@@ -294,9 +294,9 @@ body::before {
     z-index: -1;
     background: linear-gradient(
         45deg,
-        #4facfe 0%,
-        #667eea 25%,
-        #764ba2 50%,
+        #00d4ff 0%,
+        #4facfe 25%,
+        #667eea 50%,
         #6b7cd9 75%,
         #534dbf 100%
     );
