@@ -41,11 +41,20 @@ if (themeToggle) {
                 current = section.getAttribute('id');
             }
         });
-        if (current) {
-            updateColorScheme(current);
-        } else {
-            updateColorScheme('hero'); // Default to hero colors
+        
+        // Force a section class - default to hero if no section detected
+        if (!current) {
+            current = 'hero';
         }
+        updateColorScheme(current);
+        
+        // Force navbar background update
+        setTimeout(() => {
+            const navbar = document.querySelector('.navbar');
+            if (navbar) {
+                navbar.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--nav-bg');
+            }
+        }, 10);
     });
     
     // Set initial icon
@@ -86,62 +95,67 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Navbar background on scroll
+// Navbar background on scroll with dynamic colors
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     const currentTheme = document.documentElement.getAttribute('data-theme');
     
-    if (window.scrollY > 50) {
-        if (currentTheme === 'dark') {
-            navbar.style.backgroundColor = 'rgba(31, 41, 55, 0.98)';
-        } else {
-            navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+    // Get current section to determine color
+    const sections = document.querySelectorAll('section[id]');
+    let current = 'hero'; // Default to hero
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= (sectionTop - 200)) {
+            current = section.getAttribute('id');
         }
-    } else {
-        if (currentTheme === 'dark') {
-            navbar.style.backgroundColor = 'rgba(31, 41, 55, 0.95)';
+    });
+    
+    // Update color scheme first to ensure CSS variables are current
+    updateColorScheme(current);
+    
+    // Small delay to ensure CSS variables are updated before reading them
+    setTimeout(() => {
+        const rootStyles = getComputedStyle(document.documentElement);
+        const primaryColor = rootStyles.getPropertyValue('--primary-color').trim();
+        
+        if (window.scrollY > 50) {
+            if (currentTheme === 'dark') {
+                navbar.style.backgroundColor = `rgba(31, 41, 55, 0.98)`;
+                navbar.style.borderBottomColor = primaryColor;
+            } else {
+                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.borderBottomColor = primaryColor;
+            }
         } else {
-            navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+            if (currentTheme === 'dark') {
+                navbar.style.backgroundColor = 'rgba(31, 41, 55, 0.95)';
+                navbar.style.borderBottomColor = primaryColor;
+            } else {
+                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.borderBottomColor = primaryColor;
+            }
         }
-    }
+    }, 10);
 });
-
-// Dynamic Color Scheme Configuration
-const colorSchemes = {
-    hero: {
-        light: { primary: '#2563eb', secondary: '#3b82f6', accent: '#1d4ed8' },
-        dark: { primary: '#3b82f6', secondary: '#60a5fa', accent: '#2563eb' }
-    },
-    about: {
-        light: { primary: '#059669', secondary: '#10b981', accent: '#047857' },
-        dark: { primary: '#10b981', secondary: '#34d399', accent: '#059669' }
-    },
-    skills: {
-        light: { primary: '#7c3aed', secondary: '#8b5cf6', accent: '#6d28d9' },
-        dark: { primary: '#8b5cf6', secondary: '#a78bfa', accent: '#7c3aed' }
-    },
-    projects: {
-        light: { primary: '#dc2626', secondary: '#ef4444', accent: '#b91c1c' },
-        dark: { primary: '#ef4444', secondary: '#f87171', accent: '#dc2626' }
-    },
-    contact: {
-        light: { primary: '#ea580c', secondary: '#f97316', accent: '#c2410c' },
-        dark: { primary: '#f97316', secondary: '#fb923c', accent: '#ea580c' }
-    }
-};
 
 // Function to update color scheme
 function updateColorScheme(sectionId) {
-    const root = document.documentElement;
-    const theme = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-    const colors = colorSchemes[sectionId] || colorSchemes.hero;
-    const scheme = colors[theme];
+    const body = document.body;
     
-    if (scheme) {
-        root.style.setProperty('--primary-color', scheme.primary);
-        root.style.setProperty('--secondary-color-accent', scheme.secondary);
-        root.style.setProperty('--accent-color', scheme.accent);
-    }
+    // Remove all existing section classes
+    body.classList.remove('section-hero', 'section-about', 'section-skills', 'section-projects', 'section-contact');
+    
+    // Add the new section class
+    body.classList.add(`section-${sectionId}`);
+    
+    // Update navbar border color immediately after color scheme change
+    setTimeout(() => {
+        const navbar = document.querySelector('.navbar');
+        const rootStyles = getComputedStyle(document.documentElement);
+        const primaryColor = rootStyles.getPropertyValue('--primary-color').trim();
+        navbar.style.borderBottomColor = primaryColor;
+    }, 50); // Small delay to ensure CSS variables are updated
 }
 
 // Active navigation link highlighting with dynamic colors
@@ -158,11 +172,7 @@ window.addEventListener('scroll', () => {
         }
     });
 
-    // Update color scheme based on current section
-    if (current) {
-        updateColorScheme(current);
-    }
-
+    // Update navigation highlighting
     navLinks.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href') === '#' + current) {
@@ -203,6 +213,26 @@ if (contactForm) {
     });
 }
 
+// Timeline animations
+function initTimelineAnimations() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    const timelineObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('timeline-animate');
+            }
+        });
+    }, {
+        threshold: 0.3,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    timelineItems.forEach(item => {
+        timelineObserver.observe(item);
+    });
+}
+
 // Intersection Observer for animations
 const observerOptions = {
     threshold: 0.1,
@@ -228,6 +258,9 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
     });
+    
+    // Initialize timeline animations
+    initTimelineAnimations();
 });
 
 // Hero title typing animation
@@ -293,4 +326,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize color scheme
     updateColorScheme('hero');
+    
+    // Initialize timeline animations
+    initTimelineAnimations();
 });
