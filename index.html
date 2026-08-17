@@ -182,28 +182,33 @@
 
                 <div class="project-browser reveal">
                     <div class="project-list" role="tablist" aria-label="Selected projects">
-                        <button type="button" role="tab" aria-selected="true" data-project="routing-cli">
+                        <button type="button" role="tab" aria-selected="true" data-project="routing-app">
                             <span>01</span>
+                            <div><strong>Routing App</strong><small>Blazor · AI infrastructure</small></div>
+                            <i>&rarr;</i>
+                        </button>
+                        <button type="button" role="tab" aria-selected="false" data-project="routing-cli">
+                            <span>02</span>
                             <div><strong>Routing CLI</strong><small>.NET · AI infrastructure</small></div>
                             <i>&rarr;</i>
                         </button>
                         <button type="button" role="tab" aria-selected="false" data-project="copilot-monitor">
-                            <span>02</span>
+                            <span>03</span>
                             <div><strong>Copilot Usage Monitor</strong><small>Windows · Developer tools</small></div>
                             <i>&rarr;</i>
                         </button>
                         <button type="button" role="tab" aria-selected="false" data-project="harmonizer">
-                            <span>03</span>
+                            <span>04</span>
                             <div><strong>HarmonAIzer</strong><small>Full stack · Machine learning</small></div>
                             <i>&rarr;</i>
                         </button>
                         <button type="button" role="tab" aria-selected="false" data-project="cloudsim">
-                            <span>04</span>
+                            <span>05</span>
                             <div><strong>Cloud Scheduler</strong><small>C++ · Systems</small></div>
                             <i>&rarr;</i>
                         </button>
                         <button type="button" role="tab" aria-selected="false" data-project="wave-gen">
-                            <span>05</span>
+                            <span>06</span>
                             <div><strong>Wave Generator</strong><small>Three.js · Creative coding</small></div>
                             <i>&rarr;</i>
                         </button>
@@ -212,23 +217,23 @@
                     <article class="project-preview" aria-live="polite">
                         <div class="preview-visual" id="project-visual">
                             <span id="project-number">01</span>
-                            <strong id="project-monogram">CLI</strong>
+                            <strong id="project-monogram">APP</strong>
                             <small id="project-category">AI infrastructure</small>
                         </div>
                         <div class="preview-copy">
-                            <span class="card-meta" id="project-meta">C# · .NET · Spectre.Console</span>
-                            <h3 id="project-title">Routing CLI</h3>
+                            <span class="card-meta" id="project-meta">C# · Blazor · Microsoft.Extensions.AI</span>
+                            <h3 id="project-title">Routing App</h3>
                             <p id="project-summary">
-                                A terminal chat application that makes content-based model routing,
-                                provider configuration, and failover visible.
+                                Blazor application for composing and testing semantic routing and failover
+                                pipelines with deterministic mock responses.
                             </p>
                             <ul id="project-highlights">
-                                <li>Runs immediately with deterministic simulated clients.</li>
-                                <li>Supports route-specific model and reasoning options.</li>
-                                <li>Switches to real OpenAI models through environment variables.</li>
+                                <li>Builds interactive semantic, ordered-failover, cooldown, and emergency-fallback pipelines.</li>
+                                <li>Includes runtime health controls, semantic score evidence, and nested diagnostics.</li>
+                                <li>Runs locally without an API key.</li>
                             </ul>
                             <div class="preview-links" id="project-links">
-                                <a href="https://github.com/joshuajyue/routing-cli-sample" target="_blank" rel="noopener">View repository <span>&nearr;</span></a>
+                                <a href="https://github.com/joshuajyue/routing-app" target="_blank" rel="noopener">View repository <span>&nearr;</span></a>
                             </div>
                         </div>
                     </article>

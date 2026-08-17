@@ -1,8 +1,24 @@
 document.documentElement.classList.add("js");
 
 const projectData = {
-    "routing-cli": {
+    "routing-app": {
         number: "01",
+        monogram: "APP",
+        category: "AI infrastructure",
+        meta: "C# · Blazor · Microsoft.Extensions.AI",
+        title: "Routing App",
+        summary: "Blazor application for composing and testing semantic routing and failover pipelines with deterministic mock responses.",
+        highlights: [
+            "Builds interactive semantic, ordered-failover, cooldown, and emergency-fallback pipelines.",
+            "Includes runtime health controls, semantic score evidence, and nested diagnostics.",
+            "Runs locally without an API key."
+        ],
+        links: [
+            ["View repository", "https://github.com/joshuajyue/routing-app"]
+        ]
+    },
+    "routing-cli": {
+        number: "02",
         monogram: "CLI",
         category: "AI infrastructure",
         meta: "C# · .NET · Spectre.Console",
@@ -18,7 +34,7 @@ const projectData = {
         ]
     },
     "copilot-monitor": {
-        number: "02",
+        number: "03",
         monogram: "LOG",
         category: "Developer tools",
         meta: "C# · Windows · SQLite",
@@ -34,7 +50,7 @@ const projectData = {
         ]
     },
     harmonizer: {
-        number: "03",
+        number: "04",
         monogram: "MIDI",
         category: "Full-stack application",
         meta: "Python · FastAPI · React · PyTorch",
@@ -50,7 +66,7 @@ const projectData = {
         ]
     },
     cloudsim: {
-        number: "04",
+        number: "05",
         monogram: "C++",
         category: "Systems simulation",
         meta: "C++ · Scheduling · VM migration",
@@ -66,7 +82,7 @@ const projectData = {
         ]
     },
     "wave-gen": {
-        number: "05",
+        number: "06",
         monogram: "3D",
         category: "Creative coding",
         meta: "JavaScript · Three.js · Web Audio",
