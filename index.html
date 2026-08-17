@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Joshua Yue is a former Microsoft software engineering intern and UT Austin CS + Math student working on .NET, systems, AI infrastructure, and developer tooling.">
-    <meta name="theme-color" content="#f4f2ec">
+    <meta name="description" content="Joshua Yue is a Microsoft software engineering intern and UT Austin CS + Math student focused on .NET, AI infrastructure, systems, and developer tools.">
+    <meta name="theme-color" content="#f7f7f5">
     <meta property="og:title" content="Joshua Yue - Software Engineer">
     <meta property="og:description" content="Microsoft internship work across .NET, AI infrastructure, systems, and developer tooling.">
     <meta property="og:type" content="website">
@@ -13,411 +13,313 @@
     <title>Joshua Yue - Software Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script>
-        const savedTheme = localStorage.getItem("portfolio-theme");
-        const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        document.documentElement.dataset.theme = savedTheme || (systemDark ? "dark" : "light");
-    </script>
 </head>
 <body>
-    <a class="skip-link" href="#main-content">Skip to content</a>
-    <div class="scroll-progress" aria-hidden="true"><span></span></div>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="site-header">
-        <div class="site-header-inner">
-            <a class="wordmark" href="#top" aria-label="Joshua Yue, home">
-                <span>JY</span>
-                <span class="wordmark-name">Joshua Yue</span>
-            </a>
-
-            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-                <span class="nav-toggle-label">Menu</span>
-                <span class="nav-toggle-lines" aria-hidden="true"><i></i><i></i></span>
+    <header class="nav-shell">
+        <nav class="nav container" aria-label="Primary navigation">
+            <a class="nav-brand" href="#top">Joshua Yue</a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+                <span>Menu</span>
+                <i aria-hidden="true"></i>
             </button>
-
-            <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
-                <a href="#work">Work</a>
-                <a href="#timeline">Timeline</a>
+            <div class="nav-links" id="nav-links">
+                <a href="#microsoft">Microsoft</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
                 <a href="#about">About</a>
-                <a href="#contact">Contact</a>
-                <a href="./Resume.pdf" target="_blank" rel="noopener">Resume <span aria-hidden="true">&nearr;</span></a>
-            </nav>
-
-            <button class="theme-toggle" type="button" aria-label="Use dark theme">
-                <span class="theme-toggle-mark" aria-hidden="true"></span>
-            </button>
-        </div>
+            </div>
+            <a class="nav-resume" href="./Resume.pdf" target="_blank" rel="noopener">Resume <span>&nearr;</span></a>
+        </nav>
     </header>
 
-    <main id="main-content">
-        <section class="hero" id="top">
-            <div class="shell hero-grid">
-                <div class="hero-copy reveal">
-                    <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Software engineer / Microsoft intern '26 / Austin, Texas</p>
-                    <h1>
-                        Building reliable systems
-                        <em>from API surface to runtime.</em>
-                    </h1>
-                    <p class="hero-lede">
-                        I am Joshua Yue, a CS + Math student at UT Austin. In 2026, I was a
-                        Software Engineering Intern at Microsoft, where I shipped .NET framework,
-                        runtime, cryptography, and documentation work.
-                    </p>
-                    <div class="hero-actions">
-                        <a class="button button-solid" href="#work">Explore selected work</a>
-                        <a class="button button-text" href="https://github.com/joshuajyue" target="_blank" rel="noopener">
-                            GitHub <span aria-hidden="true">&nearr;</span>
-                        </a>
-                    </div>
+    <main id="main">
+        <section class="hero container" id="top">
+            <div class="hero-copy reveal">
+                <div class="hero-badge">
+                    <span></span>
+                    Microsoft Software Engineering Intern · 2026
                 </div>
-
-                <aside class="hero-profile reveal" aria-label="Profile summary">
-                    <div class="portrait-frame">
-                        <img src="image.png" alt="Portrait of Joshua Yue" width="560" height="560">
-                        <span class="portrait-caption">CS + Math, UT Austin '27</span>
-                    </div>
-                    <dl class="hero-facts">
-                        <div>
-                            <dt>Experience</dt>
-                            <dd>Microsoft SWE Intern</dd>
-                        </div>
-                        <div>
-                            <dt>Internship</dt>
-                            <dd>5 merged .NET PRs</dd>
-                        </div>
-                        <div>
-                            <dt>Focus</dt>
-                            <dd>Systems + AI infrastructure</dd>
-                        </div>
-                    </dl>
-                </aside>
+                <h1>Joshua Yue</h1>
+                <p class="hero-role">Software engineer focused on .NET, systems, AI infrastructure, and developer tools.</p>
+                <p class="hero-summary">
+                    CS + Math at UT Austin ('27). During my Microsoft internship, I contributed
+                    to Microsoft.Extensions.AI, the .NET runtime, cryptography tests, and documentation.
+                </p>
+                <div class="hero-actions">
+                    <a class="button button-dark" href="#microsoft">Microsoft internship</a>
+                    <a class="button button-light" href="https://github.com/joshuajyue" target="_blank" rel="noopener">
+                        GitHub <span>&nearr;</span>
+                    </a>
+                </div>
             </div>
 
-            <div class="hero-index shell" aria-label="Selected Microsoft internship contributions">
+            <aside class="impact-card reveal" aria-label="Microsoft internship impact">
+                <div class="impact-top">
+                    <span class="impact-label">Microsoft · .NET</span>
+                    <span class="impact-year">2026</span>
+                </div>
+                <div class="impact-number">5</div>
+                <p class="impact-title">merged .NET pull requests</p>
+                <div class="impact-list">
+                    <div>
+                        <span>AI infrastructure</span>
+                        <strong>Routing + failover APIs</strong>
+                    </div>
+                    <div>
+                        <span>Runtime</span>
+                        <strong>BitArray span support</strong>
+                    </div>
+                    <div>
+                        <span>Cryptography</span>
+                        <strong>Cross-platform test modernization</strong>
+                    </div>
+                </div>
                 <a href="https://github.com/dotnet/extensions/pull/7662" target="_blank" rel="noopener">
-                    <span>01</span>
-                    <strong>Microsoft.Extensions.AI routing</strong>
-                    <small>Microsoft internship</small>
+                    View dotnet/extensions#7662 <span>&nearr;</span>
                 </a>
-                <a href="https://github.com/dotnet/runtime/pull/131500" target="_blank" rel="noopener">
-                    <span>02</span>
-                    <strong>BitArray span constructors</strong>
-                    <small>Microsoft internship</small>
-                </a>
-                <a href="https://github.com/dotnet/runtime/pull/131783" target="_blank" rel="noopener">
-                    <span>03</span>
-                    <strong>Cross-platform crypto tests</strong>
-                    <small>Microsoft internship</small>
-                </a>
+            </aside>
+        </section>
+
+        <div class="trust-strip">
+            <div class="container">
+                <span>Work shipped across</span>
+                <strong>Microsoft.Extensions.AI</strong>
+                <strong>.NET Runtime</strong>
+                <strong>.NET Docs</strong>
+                <strong>PKCS / CMS</strong>
+            </div>
+        </div>
+
+        <section class="section container" id="microsoft">
+            <div class="section-intro reveal">
+                <span class="section-kicker">Microsoft internship</span>
+                <h2>Microsoft Software Engineering Internship</h2>
+                <p>
+                    Public API design, runtime code, cross-platform testing, and documentation
+                    across several .NET repositories.
+                </p>
+            </div>
+
+            <div class="microsoft-grid">
+                <article class="work-card work-card-featured reveal">
+                    <div class="card-header">
+                        <span class="card-index">01</span>
+                        <span class="status-pill">Merged</span>
+                    </div>
+                    <div class="card-body">
+                        <span class="card-meta">Microsoft.Extensions.AI</span>
+                        <h3>Extensible AI client routing</h3>
+                        <p>
+                            Added routing, failover, semantic selection, request context, and per-attempt
+                            diagnostics to the core IChatClient ecosystem.
+                        </p>
+                    </div>
+                    <div class="metric-row">
+                        <div><strong>17</strong><span>commits</span></div>
+                        <div><strong>14</strong><span>files</span></div>
+                        <div><strong>3,527</strong><span>additions</span></div>
+                    </div>
+                    <div class="card-links">
+                        <a href="https://github.com/dotnet/extensions/pull/7662" target="_blank" rel="noopener">Main PR <span>&nearr;</span></a>
+                        <a href="https://github.com/dotnet/extensions/pull/7685" target="_blank" rel="noopener">Options follow-up <span>&nearr;</span></a>
+                        <a href="https://github.com/dotnet/docs/pull/55354" target="_blank" rel="noopener">Documentation <span>&nearr;</span></a>
+                    </div>
+                </article>
+
+                <article class="work-card reveal">
+                    <div class="card-header">
+                        <span class="card-index">02</span>
+                        <span class="status-pill">Merged</span>
+                    </div>
+                    <div class="card-body">
+                        <span class="card-meta">.NET Runtime</span>
+                        <h3>BitArray span constructors</h3>
+                        <p>
+                            Added direct construction from bool, byte, and int spans with SIMD-aware,
+                            boundary, and performance coverage.
+                        </p>
+                    </div>
+                    <a class="card-action" href="https://github.com/dotnet/runtime/pull/131500" target="_blank" rel="noopener">
+                        View pull request <span>&nearr;</span>
+                    </a>
+                </article>
+
+                <article class="work-card reveal">
+                    <div class="card-header">
+                        <span class="card-index">03</span>
+                        <span class="status-pill">Merged</span>
+                    </div>
+                    <div class="card-body">
+                        <span class="card-meta">.NET Cryptography</span>
+                        <h3>Modern cross-platform test assets</h3>
+                        <p>
+                            Replaced SHA-1 and RSA-1024 fixtures with modern equivalents and restored
+                            coverage on stricter Linux systems.
+                        </p>
+                    </div>
+                    <a class="card-action" href="https://github.com/dotnet/runtime/pull/131783" target="_blank" rel="noopener">
+                        View pull request <span>&nearr;</span>
+                    </a>
+                </article>
             </div>
         </section>
 
-        <section class="section work-section" id="work">
-            <div class="shell">
-                <div class="section-heading reveal">
-                    <div>
-                        <p class="eyebrow">Selected work / 2025-2026</p>
-                        <h2>Engineering with a visible point of view.</h2>
-                    </div>
+        <section class="section projects-section" id="projects">
+            <div class="container">
+                <div class="section-intro reveal">
+                    <span class="section-kicker">Selected projects</span>
+                    <h2>Selected Projects</h2>
                     <p>
-                        Microsoft internship work and original projects across framework APIs,
-                        runtime code, developer tooling, scheduling, and creative computing.
+                        Select a project for its summary, technical details, and links.
                     </p>
                 </div>
 
-                <div class="project-filters reveal" role="group" aria-label="Filter projects">
-                    <button type="button" data-filter="all" aria-pressed="true">All work</button>
-                    <button type="button" data-filter="microsoft" aria-pressed="false">Microsoft internship</button>
-                    <button type="button" data-filter="tools" aria-pressed="false">AI + tools</button>
-                    <button type="button" data-filter="systems" aria-pressed="false">Systems</button>
-                    <button type="button" data-filter="creative" aria-pressed="false">Creative</button>
-                </div>
-
-                <div class="project-grid">
-                    <article class="project-card project-card-featured reveal" data-category="microsoft tools" data-project="routing">
-                        <button class="project-card-trigger" type="button" aria-label="View details for Microsoft.Extensions.AI routing">
-                            <span class="project-number">01</span>
-                            <span class="project-type">Microsoft internship / API design</span>
-                            <h3>Extensible AI client routing</h3>
-                            <p>Routing, failover, semantic selection, and per-attempt context for Microsoft.Extensions.AI.</p>
-                            <span class="project-stack">C# / .NET / Microsoft.Extensions.AI</span>
-                            <span class="project-cta">View case study <span aria-hidden="true">&nearr;</span></span>
+                <div class="project-browser reveal">
+                    <div class="project-list" role="tablist" aria-label="Selected projects">
+                        <button type="button" role="tab" aria-selected="true" data-project="routing-cli">
+                            <span>01</span>
+                            <div><strong>Routing CLI</strong><small>.NET · AI infrastructure</small></div>
+                            <i>&rarr;</i>
                         </button>
-                    </article>
-
-                    <article class="project-card reveal" data-category="microsoft systems" data-project="bitarray">
-                        <button class="project-card-trigger" type="button" aria-label="View details for BitArray span constructors">
-                            <span class="project-number">02</span>
-                            <span class="project-type">Microsoft internship / Runtime</span>
-                            <h3>BitArray span constructors</h3>
-                            <p>New ReadOnlySpan-based construction paths with boundary, SIMD, and performance coverage.</p>
-                            <span class="project-stack">C# / .NET Runtime / SIMD</span>
-                            <span class="project-cta">View case study <span aria-hidden="true">&nearr;</span></span>
+                        <button type="button" role="tab" aria-selected="false" data-project="copilot-monitor">
+                            <span>02</span>
+                            <div><strong>Copilot Usage Monitor</strong><small>Windows · Developer tools</small></div>
+                            <i>&rarr;</i>
                         </button>
-                    </article>
-
-                    <article class="project-card reveal" data-category="microsoft systems" data-project="crypto">
-                        <button class="project-card-trigger" type="button" aria-label="View details for cryptography test modernization">
-                            <span class="project-number">03</span>
-                            <span class="project-type">Microsoft internship / Cryptography</span>
-                            <h3>Modern cross-platform crypto tests</h3>
-                            <p>Replaced legacy SHA-1 and RSA-1024 assets and restored coverage on stricter Linux systems.</p>
-                            <span class="project-stack">C# / PKCS / CMS / Linux</span>
-                            <span class="project-cta">View case study <span aria-hidden="true">&nearr;</span></span>
+                        <button type="button" role="tab" aria-selected="false" data-project="harmonizer">
+                            <span>03</span>
+                            <div><strong>HarmonAIzer</strong><small>Full stack · Machine learning</small></div>
+                            <i>&rarr;</i>
                         </button>
-                    </article>
-
-                    <article class="project-card reveal" data-category="tools" data-project="routing-cli">
-                        <button class="project-card-trigger" type="button" aria-label="View details for Routing CLI Sample">
-                            <span class="project-number">04</span>
-                            <span class="project-type">Developer tool / AI</span>
-                            <h3>Routing CLI sample</h3>
-                            <p>A terminal chat app that makes content-based routing and failover visible and testable.</p>
-                            <span class="project-stack">C# / Spectre.Console / OpenAI</span>
-                            <span class="project-cta">View case study <span aria-hidden="true">&nearr;</span></span>
+                        <button type="button" role="tab" aria-selected="false" data-project="cloudsim">
+                            <span>04</span>
+                            <div><strong>Cloud Scheduler</strong><small>C++ · Systems</small></div>
+                            <i>&rarr;</i>
                         </button>
-                    </article>
-
-                    <article class="project-card reveal" data-category="tools systems" data-project="copilot-monitor">
-                        <button class="project-card-trigger" type="button" aria-label="View details for Copilot Usage Monitor">
-                            <span class="project-number">05</span>
-                            <span class="project-type">Developer tool / Privacy</span>
-                            <h3>Copilot usage monitor</h3>
-                            <p>A privacy-first Windows monitor for local Copilot CLI usage and retained session data.</p>
-                            <span class="project-stack">C# / Windows / SQLite</span>
-                            <span class="project-cta">View case study <span aria-hidden="true">&nearr;</span></span>
+                        <button type="button" role="tab" aria-selected="false" data-project="wave-gen">
+                            <span>05</span>
+                            <div><strong>Wave Generator</strong><small>Three.js · Creative coding</small></div>
+                            <i>&rarr;</i>
                         </button>
-                    </article>
+                    </div>
 
-                    <article class="project-card reveal" data-category="creative tools" data-project="harmonizer">
-                        <button class="project-card-trigger" type="button" aria-label="View details for HarmonAIzer">
-                            <span class="project-number">06</span>
-                            <span class="project-type">Creative computing / AI</span>
-                            <h3>HarmonAIzer</h3>
-                            <p>A full-stack MIDI harmonizer with music-theory and learned chord engines.</p>
-                            <span class="project-stack">Python / FastAPI / React / PyTorch</span>
-                            <span class="project-cta">View case study <span aria-hidden="true">&nearr;</span></span>
-                        </button>
-                    </article>
-
-                    <article class="project-card reveal" data-category="systems" data-project="cloudsim">
-                        <button class="project-card-trigger" type="button" aria-label="View details for Greedy Cloud Scheduler">
-                            <span class="project-number">07</span>
-                            <span class="project-type">Systems / Simulation</span>
-                            <h3>Greedy cloud scheduler</h3>
-                            <p>SLA-aware task placement, machine wake-up, and VM migration in a C++ simulation.</p>
-                            <span class="project-stack">C++ / Scheduling / VM migration</span>
-                            <span class="project-cta">View case study <span aria-hidden="true">&nearr;</span></span>
-                        </button>
-                    </article>
-
-                    <article class="project-card reveal" data-category="creative" data-project="wave-gen">
-                        <button class="project-card-trigger" type="button" aria-label="View details for Wave Generator">
-                            <span class="project-number">08</span>
-                            <span class="project-type">Creative computing / Web</span>
-                            <h3>Wave generator</h3>
-                            <p>Real-time 3D Lissajous forms generated from notes played on a virtual piano.</p>
-                            <span class="project-stack">Three.js / Web Audio / JavaScript</span>
-                            <span class="project-cta">View case study <span aria-hidden="true">&nearr;</span></span>
-                        </button>
+                    <article class="project-preview" aria-live="polite">
+                        <div class="preview-visual" id="project-visual">
+                            <span id="project-number">01</span>
+                            <strong id="project-monogram">CLI</strong>
+                            <small id="project-category">AI infrastructure</small>
+                        </div>
+                        <div class="preview-copy">
+                            <span class="card-meta" id="project-meta">C# · .NET · Spectre.Console</span>
+                            <h3 id="project-title">Routing CLI</h3>
+                            <p id="project-summary">
+                                A terminal chat application that makes content-based model routing,
+                                provider configuration, and failover visible.
+                            </p>
+                            <ul id="project-highlights">
+                                <li>Runs immediately with deterministic simulated clients.</li>
+                                <li>Supports route-specific model and reasoning options.</li>
+                                <li>Switches to real OpenAI models through environment variables.</li>
+                            </ul>
+                            <div class="preview-links" id="project-links">
+                                <a href="https://github.com/joshuajyue/routing-cli-sample" target="_blank" rel="noopener">View repository <span>&nearr;</span></a>
+                            </div>
+                        </div>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section class="section timeline-section" id="timeline">
-            <div class="shell">
-                <div class="section-heading reveal">
+        <section class="section container" id="experience">
+            <div class="section-intro reveal">
+                <span class="section-kicker">Experience</span>
+                <h2>Experience</h2>
+            </div>
+
+            <div class="experience-panel reveal">
+                <div class="experience-nav" role="tablist" aria-label="Experience timeline">
+                    <button type="button" role="tab" aria-selected="true" data-experience="microsoft">
+                        <span>2026</span><strong>Microsoft</strong>
+                    </button>
+                    <button type="button" role="tab" aria-selected="false" data-experience="usaa">
+                        <span>2025</span><strong>USAA</strong>
+                    </button>
+                    <button type="button" role="tab" aria-selected="false" data-experience="luminescence">
+                        <span>2023</span><strong>Texas Luminescence</strong>
+                    </button>
+                    <button type="button" role="tab" aria-selected="false" data-experience="utaustin">
+                        <span>2023—27</span><strong>UT Austin</strong>
+                    </button>
+                </div>
+
+                <article class="experience-detail" aria-live="polite">
                     <div>
-                        <p class="eyebrow">Timeline / Selected chapters</p>
-                        <h2>A career in motion, not a static list.</h2>
+                        <span class="experience-type" id="experience-type">Software Engineering Internship</span>
+                        <h3 id="experience-title">Microsoft</h3>
                     </div>
-                    <p>Select a chapter to see the work, context, and technical direction behind it.</p>
-                </div>
-
-                <div class="timeline-explorer reveal">
-                    <div class="timeline-tabs" role="tablist" aria-label="Career timeline">
-                        <button id="timeline-tab-2026" type="button" role="tab" aria-selected="true" aria-controls="timeline-panel-2026" tabindex="0" data-timeline="2026">
-                            <span>2026</span>
-                            <strong>Microsoft</strong>
-                            <small>Software engineering intern</small>
-                        </button>
-                        <button id="timeline-tab-2025" type="button" role="tab" aria-selected="false" aria-controls="timeline-panel-2025" tabindex="-1" data-timeline="2025">
-                            <span>2025</span>
-                            <strong>USAA</strong>
-                            <small>Software engineering intern</small>
-                        </button>
-                        <button id="timeline-tab-2023-work" type="button" role="tab" aria-selected="false" aria-controls="timeline-panel-2023-work" tabindex="-1" data-timeline="2023-work">
-                            <span>2023</span>
-                            <strong>Texas Luminescence</strong>
-                            <small>Backend development</small>
-                        </button>
-                        <button id="timeline-tab-2023-school" type="button" role="tab" aria-selected="false" aria-controls="timeline-panel-2023-school" tabindex="-1" data-timeline="2023-school">
-                            <span>2023</span>
-                            <strong>UT Austin</strong>
-                            <small>CS + Mathematics</small>
-                        </button>
+                    <p id="experience-summary">
+                        Contributed merged .NET framework, runtime, cryptography, and documentation work
+                        across Microsoft.Extensions.AI, dotnet/runtime, and dotnet/docs.
+                    </p>
+                    <div class="experience-tags" id="experience-tags">
+                        <span>.NET</span><span>C#</span><span>API design</span><span>Runtime</span><span>Cryptography</span>
                     </div>
-
-                    <div class="timeline-panels">
-                        <article id="timeline-panel-2026" role="tabpanel" aria-labelledby="timeline-tab-2026" data-timeline-panel="2026">
-                            <p class="timeline-kicker">2026 / Microsoft internship</p>
-                            <h3>Software engineering across .NET frameworks and runtime.</h3>
-                            <p>
-                                During my Microsoft software engineering internship, I shipped merged work across
-                                dotnet/extensions, dotnet/runtime, and dotnet/docs: AI client routing APIs,
-                                collection construction paths, cryptography test assets, and public documentation.
-                            </p>
-                            <ul class="timeline-links">
-                                <li><a href="https://github.com/dotnet/extensions/pull/7662" target="_blank" rel="noopener">Internship: AI routing API <span>&nearr;</span></a></li>
-                                <li><a href="https://github.com/dotnet/runtime/pull/131500" target="_blank" rel="noopener">BitArray runtime work <span>&nearr;</span></a></li>
-                                <li><a href="https://github.com/dotnet/runtime/pull/131783" target="_blank" rel="noopener">Cryptography tests <span>&nearr;</span></a></li>
-                            </ul>
-                        </article>
-
-                        <article id="timeline-panel-2025" role="tabpanel" aria-labelledby="timeline-tab-2025" data-timeline-panel="2025" hidden>
-                            <p class="timeline-kicker">Industry experience</p>
-                            <h3>Cloud infrastructure and data engineering at enterprise scale.</h3>
-                            <p>
-                                Worked as a software engineering intern at USAA on cloud infrastructure,
-                                data engineering, and production software systems.
-                            </p>
-                            <dl class="timeline-detail-list">
-                                <div><dt>Role</dt><dd>Software Engineering Intern</dd></div>
-                                <div><dt>Focus</dt><dd>Cloud, data, enterprise systems</dd></div>
-                            </dl>
-                        </article>
-
-                        <article id="timeline-panel-2023-work" role="tabpanel" aria-labelledby="timeline-tab-2023-work" data-timeline-panel="2023-work" hidden>
-                            <p class="timeline-kicker">Early engineering</p>
-                            <h3>Backend services for an AI-based web application.</h3>
-                            <p>
-                                Developed and maintained backend functionality at Texas Luminescence,
-                                with an emphasis on secure data storage and scalable application behavior.
-                            </p>
-                            <dl class="timeline-detail-list">
-                                <div><dt>Role</dt><dd>Backend Developer</dd></div>
-                                <div><dt>Focus</dt><dd>Services, storage, scalability</dd></div>
-                            </dl>
-                        </article>
-
-                        <article id="timeline-panel-2023-school" role="tabpanel" aria-labelledby="timeline-tab-2023-school" data-timeline-panel="2023-school" hidden>
-                            <p class="timeline-kicker">Education</p>
-                            <h3>Computer Science and Mathematics at UT Austin.</h3>
-                            <p>
-                                Building a foundation across algorithms, systems, software engineering,
-                                linear algebra, and the mathematical ideas behind modern computing.
-                            </p>
-                            <dl class="timeline-detail-list">
-                                <div><dt>Degree</dt><dd>CS + Mathematics</dd></div>
-                                <div><dt>Expected</dt><dd>2027</dd></div>
-                            </dl>
-                        </article>
-                    </div>
-                </div>
+                </article>
             </div>
         </section>
 
         <section class="section about-section" id="about">
-            <div class="shell">
-                <div class="about-grid">
-                    <div class="about-title reveal">
-                        <p class="eyebrow">About / Working style</p>
-                        <h2>I like hard edges, clear contracts, and software that explains itself.</h2>
-                    </div>
-                    <div class="about-copy reveal">
-                        <p class="about-lede">
-                            My Microsoft internship work sits where product behavior meets systems detail:
-                            public APIs, failure semantics, performance-sensitive code, diagnostics,
-                            and tools that make complex behavior easier to understand.
-                        </p>
-                        <p>
-                            I move comfortably between C# and C++, Python services, TypeScript interfaces,
-                            and the documentation and tests required to make an implementation usable.
-                        </p>
+            <div class="container about-grid reveal">
+                <div class="about-profile">
+                    <img src="image.png" alt="Joshua Yue" width="180" height="180">
+                    <div>
+                        <strong>Joshua Yue</strong>
+                        <span>Austin, Texas</span>
                     </div>
                 </div>
-
-                <div class="capability-grid">
-                    <article class="capability reveal">
-                        <span>01</span>
-                        <h3>Framework + API design</h3>
-                        <p>C#, .NET, Microsoft.Extensions.AI, options, middleware, async and streaming behavior.</p>
-                    </article>
-                    <article class="capability reveal">
-                        <span>02</span>
-                        <h3>Systems engineering</h3>
-                        <p>Runtime code, memory-aware algorithms, scheduling, simulation, testing, and diagnostics.</p>
-                    </article>
-                    <article class="capability reveal">
-                        <span>03</span>
-                        <h3>AI applications</h3>
-                        <p>Model routing, evaluation, fallbacks, observability, FastAPI, PyTorch, and React.</p>
-                    </article>
-                    <article class="capability reveal">
-                        <span>04</span>
-                        <h3>Developer experience</h3>
-                        <p>CLI tools, reproducible samples, concise documentation, privacy-aware local software.</p>
-                    </article>
+                <div class="about-copy">
+                    <span class="section-kicker">About</span>
+                    <h2>About</h2>
+                    <p>
+                        I am a Computer Science and Mathematics student at UT Austin graduating in 2027.
+                        My work includes .NET APIs and runtime code, developer tools, backend services,
+                        scheduling simulations, and full-stack applications.
+                    </p>
+                    <div class="skill-row">
+                        <span>C# / .NET</span>
+                        <span>C / C++</span>
+                        <span>Python</span>
+                        <span>TypeScript</span>
+                        <span>AI infrastructure</span>
+                        <span>Systems</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="contact-section" id="contact">
-            <div class="shell contact-grid">
-                <div class="reveal">
-                    <p class="eyebrow">Contact / Open to conversation</p>
-                    <h2>Have a systems, .NET, or AI infrastructure problem worth solving?</h2>
-                </div>
-                <div class="contact-actions reveal">
-                    <a class="contact-email" href="mailto:joshuajyue@utexas.edu">
-                        joshuajyue@utexas.edu <span aria-hidden="true">&nearr;</span>
-                    </a>
-                    <div class="contact-links">
-                        <a href="https://github.com/joshuajyue" target="_blank" rel="noopener">GitHub</a>
-                        <a href="https://www.linkedin.com/in/joshuajyue/" target="_blank" rel="noopener">LinkedIn</a>
-                        <a href="./Resume.pdf" target="_blank" rel="noopener">Resume</a>
-                    </div>
+        <section class="contact-section">
+            <div class="container contact-card reveal">
+                <span class="section-kicker">Get in touch</span>
+                <h2>Contact</h2>
+                <p>For software engineering opportunities or project-related questions, email me or connect on LinkedIn.</p>
+                <div>
+                    <a class="button button-light-inverse" href="mailto:joshuajyue@utexas.edu">Email me <span>&nearr;</span></a>
+                    <a class="button button-ghost-inverse" href="https://www.linkedin.com/in/joshuajyue/" target="_blank" rel="noopener">LinkedIn <span>&nearr;</span></a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="site-footer">
-        <div class="shell">
-            <p>Joshua Yue <span aria-hidden="true">/</span> Software engineer</p>
-            <p>&copy; <span id="current-year">2026</span> Built with HTML, CSS, and JavaScript.</p>
+    <footer>
+        <div class="container">
+            <span>Joshua Yue · Software Engineer</span>
+            <span>&copy; <span id="year">2026</span></span>
         </div>
     </footer>
-
-    <dialog class="project-dialog" id="project-dialog" aria-labelledby="project-dialog-title">
-        <div class="project-dialog-shell">
-            <button class="dialog-close" type="button" aria-label="Close project details">
-                <span aria-hidden="true"></span>
-            </button>
-            <div class="dialog-index">
-                <span id="project-dialog-number"></span>
-                <span id="project-dialog-meta"></span>
-            </div>
-            <div class="dialog-content">
-                <h2 id="project-dialog-title"></h2>
-                <p class="dialog-summary" id="project-dialog-summary"></p>
-                <div class="dialog-columns">
-                    <div>
-                        <p class="dialog-label">What changed</p>
-                        <ul id="project-dialog-highlights"></ul>
-                    </div>
-                    <div>
-                        <p class="dialog-label">Technology</p>
-                        <div class="dialog-tags" id="project-dialog-tags"></div>
-                    </div>
-                </div>
-                <div class="dialog-links" id="project-dialog-links"></div>
-            </div>
-        </div>
-    </dialog>
 
     <script src="script.js"></script>
 </body>
